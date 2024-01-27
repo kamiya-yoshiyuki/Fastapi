@@ -3,7 +3,7 @@ import requests
 
 st.title('インフルエンザ 分類')
 smiles = st.text_input('smiles を入力')
-response = requests.post(url='http://127.0.0.1:8000/make_predictions', json={'smiles': smiles})
+response = requests.post(url='https://infuluenza-classifier.onrender.com/make_predictions', json={'smiles': smiles})
 # print(response.status_code)
 st.write(smiles)
 
