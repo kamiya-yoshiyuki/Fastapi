@@ -25,6 +25,8 @@ async def index():
 # POST が送信された時（入力）と予測値（出力）の定義
 @app.post('/make_predictions')
 async def make_predictions(smiles: Smiles):
+    if not smiles.smiles:
+        return({'prediction':1})
     mol = Chem.MolFromSmiles(smiles.smiles)
     fingerprint = AllChem.GetMorganFingerprintAsBitVect(mol, 2, nBits=2048, useFeatures=True)
     result=model.predict([np.array(fingerprint)])
