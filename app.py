@@ -11,8 +11,8 @@ if st.button('判定'):
     response = requests.post(url='https://infuluenza-classifier.onrender.com/make_predictions', json={'smiles': smiles})
     # print(response.status_code)
     mol = Chem.MolFromSmiles(smiles)
-    img = Draw.MolToImage(mol)
-    st.image(img)
+    Draw.MolToImage(mol)
+    #st.image(img)
     
     target = ['効果あり', '不明', '効果なし']
 
