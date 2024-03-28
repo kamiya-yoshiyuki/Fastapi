@@ -7,7 +7,7 @@ from PIL import Image
 
 from pathlib import Path
 from tempfile import NamedTemporaryFile
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 from rdkit.Chem import inchi
 from rdkit.Chem import Draw
 
