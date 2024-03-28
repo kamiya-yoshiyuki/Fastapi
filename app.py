@@ -7,7 +7,7 @@ from rdkit.Chem import Draw
 from PIL import Image
 
 def mol_to_image(mol):
-    img = Chem.Draw.MolToImage(mol, size=(300, 300))
+    img = Chem.Draw.MolToImage(mol)
     return img
 
 st.title('インフルエンザ 分類')
