@@ -3,7 +3,7 @@ import requests
 import rdkit
 from rdkit import Chem
 from rdkit.Chem import AllChem
-# from rdkit.Chem import Draw
+from rdkit.Chem import Draw
 from PIL import Image
 
 def mol_to_image(mol):
