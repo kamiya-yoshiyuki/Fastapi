@@ -13,10 +13,10 @@ if st.button('判定'):
     response = requests.post(url='https://infuluenza-classifier.onrender.com/make_predictions', json={'smiles': smiles})
     
     if response.status_code == 200:
-        mol = Chem.MolFromSmiles(smiles)
+       # mol = Chem.MolFromSmiles(smiles)
         
         if mol is not None:
-            img = Chem.Draw.MolToImage(mol)
+       #     img = Chem.Draw.MolToImage(mol)
             st.image(img, caption='SMILESから生成された分子画像', use_column_width=True)
             
             target = ['効果あり', '不明', '効果なし']
