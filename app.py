@@ -6,6 +6,13 @@ from rdkit.Chem import AllChem
 from rdkit.Chem import Draw
 from PIL import Image
 
+import pickle
+import datamaker
+from rdkit.Chem.Draw import SimilarityMaps
+from io import BytesIO
+from functools import partial
+from rdkit.Chem.Draw import rdDepictor
+
 st.title('インフルエンザ 分類')
 smiles = st.text_input('smiles を入力')
 
