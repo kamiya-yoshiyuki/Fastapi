@@ -6,11 +6,30 @@ from rdkit.Chem import Draw
 from rdkit.Chem import AllChem
 from PIL import Image
 
+st.title('RDKit を使用した化学構造の描画')
 
-st.title('SMILESからの分子画像表示')
+# SMILES入力フィールドの表示
+smiles = st.text_input('SMILES を入力してください')
+
+# SMILESが入力された場合
+if smiles:
+    # RDKitを使用して入力されたSMILESから分子を生成
+    mol = Chem.MolFromSmiles(smiles)
+
+    # 分子が正しく生成された場合
+    if mol is not None:
+        # 分子の描画
+        img = Draw.MolToImage(mol)
+
+        # 画像をStreamlitアプリに表示
+        st.image(img, caption='化学構造', use_column_width=True)
+    else:
+        st.error('入力されたSMILESが不正です。')
+
+#st.title('SMILESからの分子画像表示')
 
 # SMILESを入力するテキストボックスを作成
-smiles = st.text_input('SMILESを入力してください')
+#smiles = st.text_input('SMILESを入力してください')
 
 #if st.button('画像を表示'):
     # 入力されたSMILESから分子を作成
