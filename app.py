@@ -9,18 +9,20 @@ st.title('インフルエンザ 分類')
 smiles = st.text_input('smiles を入力')
 if st.button('判定'):
     response = requests.post(url='https://infuluenza-classifier.onrender.com/make_predictions', json={'smiles': smiles})
-    # print(response.status_code)
-    mol = Chem.MolFromSmiles(smiles)
-    Draw.MolToImage(mol)
-    #st.image(img)
     
-    target = ['効果あり', '不明', '効果なし']
+    if response.status_code == 200:
+        mol = Chem.MolFromSmiles(smiles)
+        img = mol_to_image(mol)  # ここで `mol_to_image()` 関数を呼び出しています
+        st.image(img, use_column_width=True)
+        
+        target = ['効果あり', '不明', '効果なし']
+        prediction = response.json()['prediction']
+        
+        st.write('## 結果')
+        st.write(f'この化合物はインフルエンザに対して「{target[int(prediction)]}」です')
+    else:
+        st.error('予測の取得中にエラーが発生しました。')
 
-    prediction = response.json()['prediction']
-
-    st.write('## 結果')
-    st.write('#### この化合物はインフルエンザに対して「', str(target[int(prediction)]),'」です')
-
-    # st.write('0 : High（効果あり）')
-    # st.write('1 : medium（どちらともいえない）')
-    # st.write('2 : low（効果なし）')
+def mol_to_image(mol):
+    img = Chem.Draw.MolToImage(mol, size=(300, 300))
+    return img
