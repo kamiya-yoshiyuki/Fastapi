@@ -1,11 +1,12 @@
 import streamlit as st
 import requests
-#import rdkit
-#from rdkit import Chem
+import rdkit
+from rdkit import Chem
 #from rdkit.Chem import AllChem
 #from rdkit.Chem.Draw import IPythonConsole
 
 st.title('インフルエンザ 分類')
+st.title('test')
 smiles = st.text_input('smiles を入力')
 if st.button('判定'):
     response = requests.post(url='https://infuluenza-classifier.onrender.com/make_predictions', json={'smiles': smiles})
