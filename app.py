@@ -6,10 +6,6 @@ from rdkit.Chem import AllChem
 from rdkit.Chem import Draw
 from PIL import Image
 
-def mol_to_image(mol):
-    img = Chem.Draw.MolToImage(mol)
-    return img
-
 st.title('インフルエンザ 分類')
 smiles = st.text_input('smiles を入力')
 
@@ -33,3 +29,6 @@ if st.button('判定'):
     else:
         st.error('予測の取得中にエラーが発生しました。')
 
+def mol_to_image(mol):
+    img = Chem.Draw.MolToImage(mol)
+    return img
