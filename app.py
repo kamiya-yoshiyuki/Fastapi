@@ -3,7 +3,6 @@ import requests
 import rdkit
 from rdkit import Chem
 from rdkit.Chem import AllChem
-from rdkit.Chem.Draw import rdMolDraw2D
 from PIL import Image
 
 st.title('インフルエンザ 分類')
@@ -13,7 +12,7 @@ if st.button('判定'):
     # print(response.status_code)
     mol = Chem.MolFromSmiles(smiles)
     img = Draw.MolToImage(mol)
-    st.image(img, use_column_width=True)
+    st.image(img)
     
     target = ['効果あり', '不明', '効果なし']
 
