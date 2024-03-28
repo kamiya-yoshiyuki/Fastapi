@@ -5,6 +5,7 @@ import pickle
 import rdkit
 from rdkit import Chem
 from rdkit.Chem import AllChem
+from rdkit.Chem import Draw
 import numpy as np
 
 # インスタンス化
