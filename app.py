@@ -2,6 +2,7 @@ import streamlit as st
 import requests
 import rdkit
 from rdkit import Chem
+from rdkit.Chem import Draw
 from rdkit.Chem import AllChem
 from PIL import Image
 
@@ -15,8 +16,8 @@ if st.button('判定'):
         mol = Chem.MolFromSmiles(smiles)
         
         if mol is not None:
-            Chem.Draw.MolToImage(mol)
-            # st.image(img, use_column_width=True)
+            img = Chem.Draw.MolToImage(mol)
+            st.image(img, caption='SMILESから生成された分子画像', use_column_width=True)
             
             target = ['効果あり', '不明', '効果なし']
             prediction = response.json()['prediction']
