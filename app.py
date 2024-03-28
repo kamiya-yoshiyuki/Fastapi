@@ -3,6 +3,7 @@ import requests
 import rdkit
 from rdkit import Chem
 from rdkit.Chem import AllChem
+from PIL import Image
 
 st.title('インフルエンザ 分類')
 smiles = st.text_input('smiles を入力')
