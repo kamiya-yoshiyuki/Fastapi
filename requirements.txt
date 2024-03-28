@@ -64,3 +64,4 @@ watchfiles==0.21.0
 websockets==12.0
 xgboost==2.0.3
 zipp==3.17.0
+libxrender==0.9.10
