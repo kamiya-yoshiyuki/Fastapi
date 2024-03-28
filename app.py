@@ -15,8 +15,8 @@ if st.button('判定'):
         mol = Chem.MolFromSmiles(smiles)
         
         if mol is not None:
-            img = mol_to_image(mol)
-            st.image(img, use_column_width=True)
+            Chem.Draw.MolToImage(mol)
+            # st.image(img, use_column_width=True)
             
             target = ['効果あり', '不明', '効果なし']
             prediction = response.json()['prediction']
@@ -28,6 +28,3 @@ if st.button('判定'):
     else:
         st.error('予測の取得中にエラーが発生しました。')
 
-def mol_to_image(mol):
-    img = Chem.Draw.MolToImage(mol)
-    return img
