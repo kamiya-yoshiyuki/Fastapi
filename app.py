@@ -1,3 +1,4 @@
+pip install rdkit
 import streamlit as st
 import requests
 import rdkit
