@@ -2,8 +2,8 @@ import streamlit as st
 import requests
 import rdkit
 from rdkit import Chem
-#from rdkit.Chem import AllChem
-#from rdkit.Chem.Draw import IPythonConsole
+from rdkit.Chem import AllChem
+from rdkit.Chem.Draw import IPythonConsole
 
 st.title('インフルエンザ 分類')
 st.title('test')
