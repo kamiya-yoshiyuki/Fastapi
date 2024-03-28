@@ -8,8 +8,7 @@ smiles = st.text_input('smiles を入力')
 
 if st.button('判定'):
     response = requests.post(url='https://infuluenza-classifier.onrender.com/make_predictions', json={'smiles': smiles})
-    st.write(smiles)
-    
+      
     target = ['効果あり', '不明', '効果なし']
     
     prediction = response.json()['prediction']
