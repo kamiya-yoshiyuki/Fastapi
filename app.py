@@ -9,7 +9,7 @@ from pathlib import Path
 from tempfile import NamedTemporaryFile
 # import matplotlib.pyplot as plt
 from rdkit.Chem import inchi
-#from rdkit.Chem.Draw import IPythonConsole
+from rdkit.Chem.Draw import IPythonConsole
 
 
 st.title('RDKit を使用した化学構造の描画')
